@@ -1,0 +1,9 @@
+@import url("https://fonts.googleapis.com/css?family=Open+Sans|Roboto:300|Pacifico|Lato");
+body {
+  font-family: 'Open Sans', sans-serif; }
+  body h1, body h2, body h3 {
+    font-family: 'Roboto', sans-serif; }
+
+@media (max-width: 576px) {
+  nav .container {
+    width: 100%; } }

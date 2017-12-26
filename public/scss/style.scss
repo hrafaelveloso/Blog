@@ -1,0 +1,22 @@
+$bg-color:#333;
+$font-color:#fff;
+$primary-color: #3292a6;
+$primary-overlay: rgba(50,146,166,0.6);
+$accent-color: #f0ad4e;
+$landing-icon-size: 30px;
+
+@import url('https://fonts.googleapis.com/css?family=Open+Sans|Roboto:300|Pacifico|Lato');
+
+body{
+  h1,h2,h3{
+  font-family: 'Roboto', sans-serif;
+}
+font-family: 'Open Sans', sans-serif;
+}
+
+@media (max-width:576px) {
+  nav .container{
+    width: 100%
+  }
+
+}
