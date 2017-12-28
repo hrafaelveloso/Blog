@@ -1,66 +1,14 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-
-  <link rel="stylesheet" href="css/font-awesome.min.css">
-  <link rel="stylesheet" href="css/bootstrap.css">
-  <link rel="stylesheet" href="css/style.css">
-  <title>Categorias | Blog Admin</title>
-</head>
-<body id="painel">
-
-  <!--TOP-NAVBAR -->
-  <nav id="top-navbar" class="navbar navbar-toggleable-md navbar-inverse bg-inverse py-1 ">
-    <div class="container">
-      <button class="navbar-toggler navbar-toggler-right mt-2" data-toggle="collapse" data-target="#navbarNav">
-        <span class="navbar-toggler-icon"></span></button>
-
-        <a href="index" class="navbar-brand">
-          <img src="img/logo.png" width="50" height="50" alt="HaP logo">
-          <h3 class="d-none d-md-inline align-middle">Blog</h3>
-        </a>
-        <div class="collapse navbar-collapse" id="navbarNav">
-          <ul class="navbar-nav ml-auto">
-            <li class="nav-item px-2">
-              <a href="posts" class="nav-link">Postagens</a>
-            </li>
-            <li class="nav-item px-2">
-              <a href="categories" class="nav-link active">Categorias</a>
-            </li>
-            <li class="nav-item px-2">
-              <a href="users" class="nav-link">Utilizadores</a>
-            </li>
-          </ul>
-          <ul class="navbar-nav ml-auto">
-            <li class="nav-item dropdown mr-3">
-              <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user"></i> Bem-Vindo Admin</a>
-              <div class="dropdown-menu">
-                <a href="profile" class="dropdown-item"><i class="fa fa-user-circle"></i> Área Pessoal</a>
-                <a href="settings" class="dropdown-item"><i class="fa fa-gear"></i> Definições</a>
-              </div>
-            </li>
-            <li class="nav-item">
-              <a href="login" class="nav-link"><i class="fa fa-user-times"></i> Sair</a>
-            </li>
-          </ul>
-        </div>
+<header id="main-header" class="pt-3 bg-success text-white">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-6">
+        <h1>
+          <i class="fa fa-folder-open-o"></i> Categorias
+        </h1>
       </div>
-    </nav>
-
-    <header id="main-header" class="pt-3 bg-success text-white">
-      <div class="container">
-        <div class="row">
-          <div class="col-md-6">
-            <h1>
-              <i class="fa fa-folder-open-o"></i> Categorias
-            </h1>
-          </div>
-        </div>
-      </div>
-    </header>
+    </div>
+  </div>
+</header>
 
 <!-- ACTIONS -->
 <section id="action" class="py-4 mb-4 bg-faded">
@@ -120,30 +68,19 @@
               </tr>
             </tbody>
           </table>
-<nav class="ml-4">
-  <ul class="pagination">
-    <li class="page-item disabled"><a href="#" class="page-link ">Anterior</a></li>
-    <li class="page-item active"><a href="#" class="page-link ">1</a></li>
-    <li class="page-item"><a href="#" class="page-link">2</a></li>
-    <li class="page-item"><a href="#" class="page-link">3</a></li>
-    <li class="page-item"><a href="#" class="page-link">Próximo</a></li>
+          <nav class="ml-4">
+            <ul class="pagination">
+              <li class="page-item disabled"><a href="#" class="page-link ">Anterior</a></li>
+              <li class="page-item active"><a href="#" class="page-link ">1</a></li>
+              <li class="page-item"><a href="#" class="page-link">2</a></li>
+              <li class="page-item"><a href="#" class="page-link">3</a></li>
+              <li class="page-item"><a href="#" class="page-link">Próximo</a></li>
 
-  </ul>
-</nav>
+            </ul>
+          </nav>
 
         </div>
       </div>
     </div>
   </div>
 </section>
-
-
-    <script src="js/jquery.min.js"></script>
-    <script src="js/tether.min.js"></script>
-    <script src="js/bootstrap.min.js"></script>
-    <script src="https://cdn.ckeditor.com/4.8.0/standard/ckeditor.js"></script>
-<script>
-  CKEDITOR.replace('editor1');
-</script>
-  </body>
-  </html>
