@@ -14,7 +14,7 @@ Install MongoDB
 ```
 https://docs.mongodb.com/manual/installation/
 ```
-For local testing start daemon command:
+For local testing, start daemon command:
 ````
 sudo service mongod start
 ````
