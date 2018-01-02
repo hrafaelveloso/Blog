@@ -1,61 +1,42 @@
 const express = require('express');
 const bodyParser = require('body-parser');
+const cors = require('cors');
+const path = require('path');
+const expressLayouts = require('express-ejs-layouts');
+const mongoose = require('mongoose');
+const ejs = require('ejs');
+
+var posts = require('./routes/posts');
+var others = require('./routes/main');
 
 const app = express();
-const port = 3333;
 
 
-//EJS middleware permite campos flat, estruturas
-app.use(bodyParser.urlencoded({extended:true}));
-app.use(express.static(__dirname + '/public'));
+//Base Dados
+mongoose.Promise = global.Promise; //Map global promise - get rid of warning
+//connect to mongoose
+  mongoose.connect('mongodb://localhost/blog-dev', {useMongoClient: true})
+    .then(()=> console.log('MongoDB Connected'))
+    .catch(err => console.log(err));
+const port = 3334;
+
+//MIDDLEWARE
+app.use(express.static(path.join(__dirname, '/public')));
+app.use(bodyParser.urlencoded({extended:true}));//parse application/x-www-form-urlencoded
+app.use(bodyParser.json()); //parse apllication/json
+app.use(cors());
+// view engine setup
+app.use(expressLayouts);
 app.set('view engine', 'ejs');
+app.use('/', others);
+app.use('/posts', posts);
+app.use('/posts/details', posts);
 
-//How middleware works
-app.use(function(req,res,next){
-  // console.log(Date.now());
-  req.name = 'Fernando Guimarães';
-  next();
-});
 
-//Routes
-app.get('/', (req, res)=>{
-  console.log(req.name);
-  res.render('index');
-});
+// uncomment after placing your favicon in /public
+//app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
 
-app.get('/index', (req, res)=>{
-  console.log(req.name);
-  res.render('index');
-});
-
-app.get('/posts', (req, res)=>{
-  res.render('posts');
-});
-
-app.get('/login', (req, res)=>{
-  res.render('login');
-});
-
-app.get('/categories', (req, res)=>{
-  res.render('categories');
-});
-
-app.get('/details', (req, res)=>{
-  res.render('details');
-});
-
-app.get('/profile', (req, res)=>{
-  res.render('profile');
-});
-
-app.get('/settings', (req, res)=>{
-  res.render('settings');
-});
-
-app.get('/users', (req, res)=>{
-  res.render('users');
-});
-
+module.exports = app;
 
 app.listen(port, () =>{
   console.log(`Server started on port ${port}`);
