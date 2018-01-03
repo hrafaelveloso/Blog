@@ -1,3 +1,4 @@
+/*jshint esversion: 6 */
 const express = require('express');
 const mongoose = require('mongoose');
 const bcrypt = require('bcryptjs');
@@ -7,103 +8,111 @@ var User = require('../models/User');
 
 router.use(express.static('public'));
 
-
-router.get('/', (req, res)=>{
+router.get('/', (req, res) => {
   var locals = {
-  title: 'Utilizadores | Blog Admin',
-  layout: 'layouts/layout',
-  state : 'autenticado'
-};
+    title: 'Utilizadores | Blog Admin',
+    layout: 'layouts/layout',
+    state: 'autenticado',
+  };
   res.render('./users/users', locals);
 });
 
-router.get('/login', (req, res)=>{
+router.get('/login', (req, res) => {
   var locals = {
-   title: 'Iniciar Sessão | Blog Admin',
-   layout: 'layouts/layout',
-   state : 'null'
- };
+    title: 'Iniciar Sessão | Blog Admin',
+    layout: 'layouts/layout',
+    state: 'null',
+  };
   res.render('./users/login', locals);
 });
 
-
-router.get('/register', (req, res)=>{
+router.get('/register', (req, res) => {
   var locals = {
-   title: 'Registar conta | Blog Admin',
-   layout: 'layouts/layout',
-   state : 'null',
-    errors : [],
-    name : [],
-    email : [],
-    password : [],
-    password2 : []
-};
+    title: 'Registar conta | Blog Admin',
+    layout: 'layouts/layout',
+    state: 'null',
+    errors: [],
+    name: [],
+    email: [],
+    password: [],
+    password2: [],
+  };
   res.render('./users/register', locals);
 });
 
 //Logout user
-router.get('/logout', (req,res) =>{
-req.logout();
-req.flash('success_msg', "Sessão terminada");
-res.redirect('/users/login')
-})
+router.get('/logout', (req, res) => {
+  req.logout();
+  req.flash('success_msg', 'Sessão terminada');
+  res.redirect('/users/login');
+});
 
 //Login Form POST
-router.post('/login', (req,res, next) =>{
+router.post('/login', (req, res, next) => {
   passport.authenticate('local', {
     successRedirect: '/index',
     failureRedirect: '/users/login',
-    failtureFlash: true
-  })(req,res,next);
+    failtureFlash: true,
+  })(req, res, next);
 });
 
 //Register Form POST
-router.post('/register', (req,res)=>{
-  let errors= [];
-  if(req.body.password != req.body.password2){
-    errors.push({text: "Palavras-chave não correspondem."})
+router.post('/register', (req, res) => {
+  let errors = [];
+  if (req.body.password != req.body.password2) {
+    errors.push({
+      text: 'Palavras-chave não correspondem.',
+    });
   }
 
-  if(req.body.password.length < 4){
-    errors.push({text: "Palavra-chave tem de ter mais que 4 caractéres."})
+  if (req.body.password.length < 4) {
+    errors.push({
+      text: 'Palavra-chave tem de ter mais que 4 caractéres.',
+    });
   }
-  if(errors.length > 0){
-    res.render('./users/register',{
-       title: 'Registar conta | Blog Admin',
+
+  if (errors.length > 0) {
+    res.render('./users/register', {
+      title: 'Registar conta | Blog Admin',
       layout: 'layouts/layout',
-      state : 'null',
+      state: 'null',
       errors: errors,
-      name : req.body.name,
-      email : req.body.email,
-      password : req.body.password,
-      password2 : req.body.password2
+      name: req.body.name,
+      email: req.body.email,
+      password: req.body.password,
+      password2: req.body.password2,
     });
   } else {
-    User.findOne({email : req.body.email}).then(user =>{
-      if(user){
+    User.findOne({
+      email: req.body.email,
+    }).then(user => {
+      if (user) {
         req.flash('error_msg', 'Email já registado');
-        res.redirect('/users/register')
-      }else{
+        res.redirect('/users/register');
+      } else {
         const newUser = new User({
-          name : req.body.name,
-          email : req.body.email,
-          password : req.body.password});
-          bcrypt.genSalt(10, (err, salt) =>{
-            bcrypt.hash(newUser.password, salt, (err, hash)=>{
-              if(err) throw err;
-              newUser.password = hash;
-              newUser.save()
+          name: req.body.name,
+          email: req.body.email,
+          password: req.body.password,
+        });
+        bcrypt.genSalt(10, (err, salt) => {
+          bcrypt.hash(newUser.password, salt, (err, hash) => {
+            if (err) throw err;
+            newUser.password = hash;
+            newUser.save()
               .then(user => {
                 req.flash('success_msg', 'Conta registada, pode iniciar a sessão');
                 res.redirect('/users/login');
               })
               .catch(err => {
-                console.log(err); return;
-              })
-            })
-          })
-        }
-      })
-    }})
+                console.log(err);
+                return;
+              });
+          });
+        });
+      }
+    });
+  }
+});
 
 module.exports = router;
