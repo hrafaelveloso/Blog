@@ -1,5 +1,5 @@
 /*jshint esversion: 6 */
-if (process.env.NODE_ENV == 'production') {
+if (process.env.NODE_ENV === 'production') {
   module.exports = {
     mongoURI: 'mongodb:/fernando:seguro@ds239097.mlab.com:39097/blog-prod',
   };
