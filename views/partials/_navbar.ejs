@@ -1,0 +1,50 @@
+<!--TOP-NAVBAR -->
+<nav id="top-navbar" class="navbar navbar-expand-md navbar-dark bg-dark py-1 ">
+  <div class="container">
+    <button class="navbar-toggler navbar-toggler-right mt-2" data-toggle="collapse" data-target="#navbarNav">
+      <span class="navbar-toggler-icon"></span></button>
+
+        <a href="/index" class="navbar-brand">
+          <img src="img/logo.png" width="50" height="50" alt="HaP logo">
+          <h3 class="d-none d-md-inline align-middle">Blog</h3>
+        </a>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <% if(user) { %>
+          <ul class="navbar-nav ml-auto">
+              <li class="nav-item px-2">
+                <a href="/posts" class="nav-link">Postagens</a>
+              </li>
+              <li class="nav-item px-2">
+                <a href="/categories" class="nav-link">Categorias</a>
+              </li>
+              <li class="nav-item px-2">
+                <a href="/users" class="nav-link">Utilizadores</a>
+              </li>
+            </ul>
+            <ul class="navbar-nav ml-auto">
+              <li class="nav-item dropdown mr-3">
+                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user"></i> Bem-Vindo Admin</a>
+                <div class="dropdown-menu">
+                  <a href="/profile" class="dropdown-item"><i class="fa fa-user-circle"></i> Área Pessoal</a>
+                  <a href="/settings" class="dropdown-item"><i class="fa fa-gear"></i> Definições</a>
+                </div>
+              </li>
+              <li class="nav-item">
+                <a href="/users/logout" class="nav-link"><i class="fa fa-user-times"></i> Sair</a>
+              </li>
+            </ul>
+<%} else { %>
+
+  <ul class="navbar-nav ml-auto">
+      <li class="nav-item px-2">
+        <a href="/users/login" class="nav-link">Iniciar Sessão</a>
+      </li>
+      <li class="nav-item px-2">
+        <a href="/users/register" class="nav-link">Registar Conta</a>
+      </li>
+    </ul>
+<% } %>
+
+        </div>
+    </div>
+  </nav>

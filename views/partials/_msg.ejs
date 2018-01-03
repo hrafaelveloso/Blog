@@ -1,0 +1,12 @@
+
+<!-- ALERT SECTION - use a locals.alert to pass any alert for the end-user -->
+<%if(success_msg.length > 0) {%>
+  <div class="container">
+    <div class="alert alert-success mt-3"><%= success_msg %></div>
+  </div>
+  <%} %>
+  <%if(error_msg.length > 0){%>
+    <div class="container">
+      <div class="alert alert-danger mt-3"><%= error_msg %></div>
+    </div>
+    <%}%>

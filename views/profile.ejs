@@ -1,0 +1,96 @@
+<header id="main-header" class="pt-3 bg-primary text-white">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-6">
+        <h1>
+          <i class="fa fa-user"></i>Área Pessoal
+        </h1>
+      </div>
+    </div>
+  </div>
+</header>
+
+<!-- ACTIONS -->
+<section id="action" class="py-4 mb-4 bg-faded">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-3 mr-auto">
+        <a href="index.html" class="btn btn-secondary btn-block"><i class="fa fa-arrow-left"> Voltar</i></a>
+      </div>
+      <div class="col-md-4">
+        <a href="index.html" class="btn btn-success btn-block"><i class="fa fa-lock" data-toggle="modal" data-target="#passwordModal"> Alterar Palavra-Passe</i></a>
+      </div>
+      <div class="col-md-3">
+        <a href="index.html" class="btn btn-danger btn-block"><i class="fa fa-remove"> Eliminar Conta</i></a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ACCOUNT EDIT -->
+<section id="edit-post-section">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-9">
+        <div class="card">
+          <div class="card-header">
+            <h4>Editar Perfil</h4>
+          </div>
+          <div class="card-block">
+            <form>
+              <div class="form-group">
+                <label for="name" class="firm-control-label">Name</label>
+                <input type="text" class="form-control" id="name" value="Fernando Guimarães">
+              </div>
+              <div class="form-group">
+                <label for="email" class="firm-control-label">Email</label>
+                <input type="email" class="form-control" id="name" value="nando@netcabo.pt">
+              </div>
+              <div class="form-group">
+                <label for="body">Bio</label>
+                <textarea name="editor1" class="form-control">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eius labore, molestias asperiores in rem, dolorem neque deleniti. Animi ad voluptate tempora illo reprehenderit, odio accusantium, impedit commodi omnis? Veniam maiores expedita eaque illo vel repellat aliquam impedit ad consectetur ut?</textarea>
+              </div>
+            </form>
+          </div>
+
+        </div>
+      </div>
+      <div class="col-md-3">
+        <h3>Imagem de Perfil</h3>
+        <img src="img/ava.jpg" alt="" class="d-block img-fluid mb-3">
+        <button class="btn btn-primary btn-block">Editar Imagem</button>
+        <button class="btn btn-danger btn-block">Apagar Imagem</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- PASSWORD MODAL -->
+<div class="modal fade" id="passwordModal">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+      <div class="modal-header bg-warning text-white">
+        <h5 class="modal-title" id="passwordModalLabel">Alterar Palavra-chave</h5>
+        <button type="close" name="button" data-dismiss="modal"><span>&times;</span></button>
+      </div>
+      <div class="modal-body">
+        <form action="">
+          <div class="form-group">
+            <label for="password" class="form-control-label">Palavra-chave</label>
+            <input type="password" name="" value="" class="form-control">
+          </div>
+          <div class="form-group">
+            <label for="password2" class="form-control-label">Confirmar</label>
+            <input type="password" name="" value="" class="form-control">
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button class="bn btn-secondary" data-dismiss="modal">Fechar</button>
+        <button class="bn btn-warning" data-dismiss="modal">Editar</button>
+
+      </div>
+    </div>
+  </div>
+</div>
