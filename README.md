@@ -29,4 +29,9 @@ $ sudo npm install
 
 * **Fernando Guimarães** - [guima-seifer](https://github.com/guima-seifer)
 
+###TODO
+Connect-flash express-session alerts not working;
+Categories, users, settings CRUDs;
+Blog frontend;
+
 See also the list of [contributors](https://github.com/guima-seifer/Blog/contributors) who participated in this project.
