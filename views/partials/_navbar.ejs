@@ -1,105 +1,48 @@
 <!--TOP-NAVBAR -->
-<<<<<<< HEAD
 <nav id="top-navbar" class="navbar navbar-expand-md navbar-dark bg-dark py-1 ">
-=======
-<<<<<<< HEAD
-<nav id="top-navbar" class="navbar navbar-expand-md navbar-dark bg-dark py-1 ">
-=======
-<nav id="top-navbar" class="navbar navbar-toggleable-md navbar-inverse bg-inverse py-1 ">
->>>>>>> d16f10aed0cb4f374547cd0b2b63cc7eca6c7e44
->>>>>>> f129dac201d23fd99f13b7c87dc2efdbafba4401
   <div class="container">
     <button class="navbar-toggler navbar-toggler-right mt-2" data-toggle="collapse" data-target="#navbarNav">
       <span class="navbar-toggler-icon"></span></button>
-
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
-=======
-      <% if (state === "autenticado"){%>
->>>>>>> d16f10aed0cb4f374547cd0b2b63cc7eca6c7e44
->>>>>>> f129dac201d23fd99f13b7c87dc2efdbafba4401
-        <a href="/index" class="navbar-brand">
+    <a href="/index" class="navbar-brand">
           <img src="img/logo.png" width="50" height="50" alt="HaP logo">
           <h3 class="d-none d-md-inline align-middle">Blog</h3>
         </a>
-        <div class="collapse navbar-collapse" id="navbarNav">
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
->>>>>>> f129dac201d23fd99f13b7c87dc2efdbafba4401
-          <% if(user) { %>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <% if(user) { %>
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item px-2">
+            <a href="/posts" class="nav-link">Postagens</a>
+          </li>
+          <li class="nav-item px-2">
+            <a href="/categories" class="nav-link">Categorias</a>
+          </li>
+          <li class="nav-item px-2">
+            <a href="/users" class="nav-link">Utilizadores</a>
+          </li>
+        </ul>
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item dropdown mr-3">
+            <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user"></i> Bem-Vindo Admin</a>
+            <div class="dropdown-menu">
+              <a href="/profile" class="dropdown-item"><i class="fa fa-user-circle"></i> Área Pessoal</a>
+              <a href="/settings" class="dropdown-item"><i class="fa fa-gear"></i> Definições</a>
+            </div>
+          </li>
+          <li class="nav-item">
+            <a href="/users/logout" class="nav-link"><i class="fa fa-user-times"></i> Sair</a>
+          </li>
+        </ul>
+        <%} else { %>
+
           <ul class="navbar-nav ml-auto">
-              <li class="nav-item px-2">
-                <a href="/posts" class="nav-link">Postagens</a>
-              </li>
-              <li class="nav-item px-2">
-                <a href="/categories" class="nav-link">Categorias</a>
-              </li>
-              <li class="nav-item px-2">
-                <a href="/users" class="nav-link">Utilizadores</a>
-              </li>
-            </ul>
-            <ul class="navbar-nav ml-auto">
-              <li class="nav-item dropdown mr-3">
-                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user"></i> Bem-Vindo Admin</a>
-                <div class="dropdown-menu">
-                  <a href="/profile" class="dropdown-item"><i class="fa fa-user-circle"></i> Área Pessoal</a>
-                  <a href="/settings" class="dropdown-item"><i class="fa fa-gear"></i> Definições</a>
-                </div>
-              </li>
-              <li class="nav-item">
-                <a href="/users/logout" class="nav-link"><i class="fa fa-user-times"></i> Sair</a>
-              </li>
-            </ul>
-<%} else { %>
-
-  <ul class="navbar-nav ml-auto">
-      <li class="nav-item px-2">
-        <a href="/users/login" class="nav-link">Iniciar Sessão</a>
-      </li>
-      <li class="nav-item px-2">
-        <a href="/users/register" class="nav-link">Registar Conta</a>
-      </li>
-    </ul>
-<% } %>
-
-        </div>
-<<<<<<< HEAD
-=======
-=======
-          <ul class="navbar-nav ml-auto">
-
             <li class="nav-item px-2">
-              <a href="/posts" class="nav-link">Postagens</a>
+              <a href="/users/login" class="nav-link">Iniciar Sessão</a>
             </li>
             <li class="nav-item px-2">
-              <a href="/categories" class="nav-link">Categorias</a>
-            </li>
-            <li class="nav-item px-2">
-              <a href="/users" class="nav-link">Utilizadores</a>
+              <a href="/users/register" class="nav-link">Registar Conta</a>
             </li>
           </ul>
-          <ul class="navbar-nav ml-auto">
-            <li class="nav-item dropdown mr-3">
-              <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user"></i> Bem-Vindo Admin</a>
-              <div class="dropdown-menu">
-                <a href="/profile" class="dropdown-item"><i class="fa fa-user-circle"></i> Área Pessoal</a>
-                <a href="/settings" class="dropdown-item"><i class="fa fa-gear"></i> Definições</a>
-              </div>
-            </li>
-            <li class="nav-item">
-              <a href="login" class="nav-link"><i class="fa fa-user-times"></i> Sair</a>
-            </li>
-          </ul>
-        </div>
-      <%} else{%>
-            <a href="#home" class="navbar-brand">
-              <img src="img/logo.png" width="50" height="50" alt="HaP logo">
-              <h3 class="d-none d-md-inline align-middle">Blog</h3>
-            </a>
-      <%}%>
->>>>>>> d16f10aed0cb4f374547cd0b2b63cc7eca6c7e44
->>>>>>> f129dac201d23fd99f13b7c87dc2efdbafba4401
+          <% } %>
     </div>
-  </nav>
+  </div>
+</nav>
