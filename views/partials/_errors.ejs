@@ -1,0 +1,13 @@
+
+<% if(error.length > 0){ %>
+  <div class="container">
+    <div class="alert alert-danger mt-3"><%=error.message%></div>
+  </div>
+<% } %>
+<% if(errors.length > 0) { %>
+<% for( var i=0 ; i < errors.length; i++) { %>
+  <div class="container">
+    <div class="alert alert-danger mt-3"><%=errors[i].text%></div>
+  </div>
+  <%}%>
+<%}%>

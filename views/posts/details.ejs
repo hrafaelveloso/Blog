@@ -18,17 +18,45 @@
       <div class="col-md-3 mr-auto">
         <a href="index.html" class="btn btn-secondary btn-block"><i class="fa fa-arrow-left"> Voltar</i></a>
       </div>
+<<<<<<< HEAD
+      <form action="/posts/details/<%=post._id%>?_method=DELETE"  method="post" class="mr-3">
+        <input type="hidden" name="_method" value="DELETE">
+        <input type="submit" name="DELETE" class="btn btn-danger btn-block" value="Eliminar"></input>
+    </form>
+
+=======
       <div class="col-md-3">
         <a href="index.html" class="btn btn-success btn-block"><i class="fa fa-check"> Gravar</i></a>
       </div>
       <div class="col-md-3">
         <a href="index.html" class="btn btn-danger btn-block"><i class="fa fa-remove"> Eliminar</i></a>
       </div>
+>>>>>>> d16f10aed0cb4f374547cd0b2b63cc7eca6c7e44
     </div>
   </div>
 </section>
 
 <!-- POST EDIT -->
+<<<<<<< HEAD
+<section id="edit-post-section" class="mb-5">
+  <div class="container">
+    <div class="row">
+      <div class="col">
+        <div class="card border-primary">
+          <div class="card-header bg-primary text-white">
+            <h4>Editar Postagem</h4>
+          </div>
+          <div class="card-block">
+            <form action="/posts/details/<%=post._id%>?_method=PUT" method="post" class="mx-3 my-3">
+              <input type="hidden" name="_method" value="PUT">
+              <div class="form-group">
+                <label for="title" class="firm-control-label" value="<%= post.title %>"></label>
+                <input name="title" type="text" class="form-control" value="<%= post.title %>">
+              </div>
+              <div class="form-group">
+                <label for="category" class="form-control-label">Category</label>
+                <select name="category" class="form-control">
+=======
 <section id="edit-post-section">
   <div class="container">
     <div class="row">
@@ -46,6 +74,7 @@
               <div class="form-group">
                 <label for="category" class="form-control-label">Category</label>
                 <select class="form-control">
+>>>>>>> d16f10aed0cb4f374547cd0b2b63cc7eca6c7e44
                   <<option value="<%= post.category %>" selected><%= post.category %></option>
                   <option value="">Exemplo 1</option>
                   <option value="">Exemplo 2</option>
@@ -59,8 +88,14 @@
               </div>
               <div class="form-group">
                 <label for="body"></label>
+<<<<<<< HEAD
+                <textarea name="textarea" class="form-control"><%= post.body %></textarea>
+              </div>
+              <input type="submit" name="PUT" class="btn btn-success btn-block" value="Gravar"></input>
+=======
                 <textarea name="editor1" class="form-control"><%= post.body %></textarea>
               </div>
+>>>>>>> d16f10aed0cb4f374547cd0b2b63cc7eca6c7e44
             </form>
           </div>
 
@@ -72,5 +107,9 @@
 
 <script src="https://cdn.ckeditor.com/4.8.0/standard/ckeditor.js"></script>
 <script>
+<<<<<<< HEAD
+CKEDITOR.replace('textarea');
+=======
 CKEDITOR.replace('editor1');
+>>>>>>> d16f10aed0cb4f374547cd0b2b63cc7eca6c7e44
 </script>

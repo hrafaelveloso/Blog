@@ -1,24 +1,41 @@
 const express = require('express');
 var router = express.Router();
 var Post = require('../models/Post');
+<<<<<<< HEAD
+const {ensureAutheticated} = require('../helpers/auth');
+
+router.use(express.static('public'));
+
+router.get('/',  ensureAutheticated, (req, res)=>{
+  Post.find({author: req.user.id})
+  .sort({date:1})
+=======
 router.use(express.static('public'));
 
 
 router.get('/', (req, res)=>{
   Post.find({})
   .sort({date:'desc'})
+>>>>>>> d16f10aed0cb4f374547cd0b2b63cc7eca6c7e44
   .then(posts => {
     res.render('./posts/posts', {
       title: 'Postagens | Blog Admin',
       layout: 'layouts/layout',
       state : 'autenticado',
+<<<<<<< HEAD
+=======
       alert : [],
+>>>>>>> d16f10aed0cb4f374547cd0b2b63cc7eca6c7e44
       posts: posts
     });
   })
 });
 // Add Post Form
+<<<<<<< HEAD
+router.get('/add', ensureAutheticated, (req, res) => {
+=======
 router.get('/add', (req, res) => {
+>>>>>>> d16f10aed0cb4f374547cd0b2b63cc7eca6c7e44
   res.render('./posts/addpost', {
     title: 'Adicionar Postagem | Blog Admin',
     layout: 'layouts/layout',
@@ -31,23 +48,46 @@ router.get('/add', (req, res) => {
 });
 
 
+<<<<<<< HEAD
+router.get('/details/:idPost', ensureAutheticated, (req, res)=>{
+=======
 router.get('/details/:idPost', (req, res)=>{
+>>>>>>> d16f10aed0cb4f374547cd0b2b63cc7eca6c7e44
   Post.findOne({
     _id: req.params.idPost
   })
   .then(post =>{
+<<<<<<< HEAD
+      if(post.author != req.user.id){
+        req.flash('error_msg', 'Oops, não estás autorizado');
+        res.redirect('/posts');
+      }else{
+
+        res.render('./posts/details', {
+        title: 'Detalhes de '+post.title+'| Blog Admin',
+        layout: 'layouts/layout',
+        state : 'autenticado',
+        post : post
+        })
+}
+=======
     res.render('./posts/details', {
       title: 'Detalhes de '+post.title+'| Blog Admin',
       layout: 'layouts/layout',
       state : 'autenticado',
       post : post
     })
+>>>>>>> d16f10aed0cb4f374547cd0b2b63cc7eca6c7e44
   })
 });
 
 
+<<<<<<< HEAD
+router.post('/add', ensureAutheticated, (req,res)=>{
+=======
 router.post('/post', (req,res)=>{
   console.log(req.body)
+>>>>>>> d16f10aed0cb4f374547cd0b2b63cc7eca6c7e44
   let errors = [];
   if(!req.body.title){
     errors.push({text: "Insira o título da postagem"})
@@ -76,6 +116,49 @@ router.post('/post', (req,res)=>{
     title: 'Postagens | Blog Admin',
     layout: 'layouts/layout',
     state : 'autenticado',
+<<<<<<< HEAD
+    title : req.body.title,
+    category: req.body.category,
+    body: req.body.textarea,
+    author: req.user.id
+  };
+  new Post(newUser)
+  .save()
+  .then(post => {
+    req.flash('success_msg', 'Postagem adicionada com sucesso');
+    res.redirect('/posts');
+  })
+}
+});
+
+//delete post process
+router.delete('/details/:idPost', ensureAutheticated, (req,res) =>{
+  Post.remove({_id: req.params.idPost})
+  .then(() => {
+    req.flash('success_msg', 'Postagem eliminada com suceso');
+    res.redirect('/posts');
+  });
+})
+
+//Edit Form Process
+router.put('/details/:idPost',  ensureAutheticated, (req,res)=>{
+  Post.findOne({_id: req.params.idPost
+  })
+  .then(post=> {
+    // console.log(req.body);
+    //new values
+    post.title = req.body.title;
+    post.category = req.body.category;
+    post.body = req.body.textarea;
+    post.author = 'Teste editado';
+    post.save().then(post => {
+      req.flash('success_msg', 'Postagem editada com sucesso');
+      res.redirect('/posts')});
+    });
+  });
+
+  module.exports = router;
+=======
     alert : 'Post adicionado com sucesso',
     title : req.body.title,
     category: req.body.category,
@@ -91,3 +174,4 @@ router.post('/post', (req,res)=>{
 });
 
 module.exports = router;
+>>>>>>> d16f10aed0cb4f374547cd0b2b63cc7eca6c7e44

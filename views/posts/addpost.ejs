@@ -1,4 +1,7 @@
 <div class="container">
+<<<<<<< HEAD
+  <div class="card border-primary my-5">
+=======
 
 <%if (locals.errors.length > 0) {%>
   <% for(var i=0; i<locals.errors.length; i++){ %>
@@ -10,14 +13,21 @@
 <%} else {%>
   <div class="card card-outline-primary my-5">
 <%}%>
+>>>>>>> d16f10aed0cb4f374547cd0b2b63cc7eca6c7e44
     <div class="card-header bg-primary text-white">
       <h1>Adicionar Postagem</h1>
     </div>
     <div class="card-block">
+<<<<<<< HEAD
+      <form method="POST" action="/posts/add" class="mx-3 my-3">
+          <div class="form-group">
+          <label for="title" class="firm-control-label">Title</label>
+=======
       <form method="POST" action="/posts/post">
           <div class="form-group">
           <label for="title" class="firm-control-label">Title
           </label>
+>>>>>>> d16f10aed0cb4f374547cd0b2b63cc7eca6c7e44
           <%if (locals.postTitle.length > 0) {%>
             <%=postTitle%>
             <input type="text" class="form-control" name="title" value="<%=postTitle%>" required>

@@ -1,11 +1,20 @@
 const express = require('express');
 var router = express.Router();
 var Post = require('../models/Post');
+<<<<<<< HEAD
+const {ensureAutheticated} = require('../helpers/auth');
+
+//Routes
+//É necessário filtrar a autenticação do user, se estiver autenticado deve ir para /index, senão página do login
+router.get('/', ensureAutheticated, (req, res)=>{
+  Post.find({author: req.user.id})
+=======
 
 //Routes
 //É necessário filtrar a autenticação do user, se estiver autenticado deve ir para /index, senão página do login
 router.get('/', (req, res)=>{
   Post.find({})
+>>>>>>> d16f10aed0cb4f374547cd0b2b63cc7eca6c7e44
     .sort({date:'desc'})
     .then(posts => {
     res.render('index', {
@@ -17,9 +26,15 @@ router.get('/', (req, res)=>{
     })
 });
 
+<<<<<<< HEAD
+router.get('/index', ensureAutheticated, (req, res)=>{
+  Post.find({author: req.user.id})
+    .sort({date:1})
+=======
 router.get('/index', (req, res)=>{
   Post.find({})
     .sort({date:'desc'})
+>>>>>>> d16f10aed0cb4f374547cd0b2b63cc7eca6c7e44
     .then(posts => {
     res.render('index', {
       title: 'Início | Blog Admin',
@@ -30,6 +45,9 @@ router.get('/index', (req, res)=>{
     })
 });
 
+<<<<<<< HEAD
+router.get('/categories', ensureAutheticated, (req, res)=>{
+=======
 
 router.get('/login', (req, res)=>{
   var locals = {
@@ -41,6 +59,7 @@ router.get('/login', (req, res)=>{
 });
 
 router.get('/categories', (req, res)=>{
+>>>>>>> d16f10aed0cb4f374547cd0b2b63cc7eca6c7e44
   var locals = {
   title: 'Home | Blog Admin',
   layout: 'layouts/layout',
@@ -49,7 +68,11 @@ router.get('/categories', (req, res)=>{
   res.render('./categories/categories', locals);
 });
 
+<<<<<<< HEAD
+router.get('/profile', ensureAutheticated, (req, res)=>{
+=======
 router.get('/profile', (req, res)=>{
+>>>>>>> d16f10aed0cb4f374547cd0b2b63cc7eca6c7e44
   var locals = {
   title: 'Área Pessoal | Blog Admin',
   layout: 'layouts/layout',
@@ -58,7 +81,11 @@ router.get('/profile', (req, res)=>{
   res.render('profile', locals);
 });
 
+<<<<<<< HEAD
+router.get('/settings', ensureAutheticated, (req, res)=>{
+=======
 router.get('/settings', (req, res)=>{
+>>>>>>> d16f10aed0cb4f374547cd0b2b63cc7eca6c7e44
   var locals = {
   title: 'Configurações | Blog Admin',
   layout: 'layouts/layout',
@@ -67,6 +94,8 @@ router.get('/settings', (req, res)=>{
   res.render('settings', locals);
 });
 
+<<<<<<< HEAD
+=======
 router.get('/users', (req, res)=>{
   var locals = {
   title: 'Utilizadores | Blog Admin',
@@ -76,4 +105,5 @@ router.get('/users', (req, res)=>{
   res.render('./users/users', locals);
 });
 
+>>>>>>> d16f10aed0cb4f374547cd0b2b63cc7eca6c7e44
 module.exports = router;
