@@ -51,10 +51,6 @@ git push heroku master
 ## Authors
 
 * **Fernando Guimarães** - [guima-seifer](https://github.com/guima-seifer)
+* **Hélder Veloso** - [hrafaelveloso](https://github.com/hrafaelveloso)
+* **Luís Ferreira** - [LuisFFFerreira](https://github.com/LuisFFFerreira)
 
-### TODO
-Connect-flash express-session alerts not working in '/', '/posts';
-Categories, users, settings CRUDs;
-Blog frontend;
-
-See also the list of [contributors](https://github.com/guima-seifer/Blog/contributors) who participated in this project.
